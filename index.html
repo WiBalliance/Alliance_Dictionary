@@ -94,20 +94,24 @@
     // 複数のJSONファイルを読み込む関数
     const loadTasks = async () => {
       const taskFiles = [
+        // 終了イベント
         'tasks_old.json',
-        'tasks_doumeisoudouin.json',
-        'tasks_doumeisouha.json',
-        'tasks_gunbi.json',
-        'tasks_heiki.json',
-        'tasks_hyougennsihaisya.json',
-        'tasks_jina.json',
-        'tasks_kuma1.json',
-        //'tasks_kuma2.json',  //未設置
-        'tasks_kyoukoku.json',
+        // 
+        'tasks_turi.json',
+        // 超得イベント
         'tasks_setugenboueki.json',
-        'tasks_sikannkeikaku.json',
+        // 通常イベント
+        'tasks_hyougennsihaisya.json',
+        'tasks_gunbi.json',
+        'tasks_doumeisoudouin.json',
+        'tasks_heiki.json',
+        'tasks_doumeisouha.json',
+        'tasks_kyoukoku.json',
         'tasks_toride.json',
-        'tasks_turi.json'
+        'tasks_sikannkeikaku.json',
+        'tasks_jina.json',
+        'tasks_kuma1.json'
+        //'tasks_kuma2.json'  //未設置
       ];
 
       try {
