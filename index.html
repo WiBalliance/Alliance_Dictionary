@@ -172,6 +172,10 @@
         return;
       }
     
+      // 開始時刻で昇順にソート
+      const sortedTasks = targetTasks.sort((a, b) => new Date(a.start) - new Date(b.start));
+    
+      // コピー用テキストを作成
       const tasksToCopy = targetTasks.map(task => {
         const taskStartDate = new Date(task.start);
         const taskStartFormattedTime = `${String(taskStartDate.getHours()).padStart(2, '0')}:${String(taskStartDate.getMinutes()).padStart(2, '0')}`; // 開始時刻の取得
