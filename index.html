@@ -91,17 +91,25 @@
       });
     };
 
-    // JSONファイルからイベントデータを読み込む
-    fetch('tasks.json')
-      .then(response => response.json())
-      .then(tasks => {
-        allTasks = tasks.map(task => ({
-          ...task,
-          progress: calculateProgress(task)
-        }));
-        updateGantt(false); // 初期表示では終了したイベントを非表示にする
-      })
-      .catch(error => console.error('Error loading tasks.json:', error));
+    // 複数のJSONファイルを読み込む関数
+    const loadTasks = async () => {
+      const taskFiles = [
+        'tasks.json',
+        'regular_tasks.json'
+      ];
+
+      try {
+        const tasks = await Promise.all(taskFiles.map(file =>
+          fetch(file).then(response => response.json())
+        ));
+        allTasks = tasks.flat(); // タスクを1つの配列にまとめる
+        updateGantt(false); // 初期表示
+      } catch (error) {
+        console.error('Error loading tasks:', error);
+      }
+    };
+
+    loadTasks(); // ファイルの読み込みを開始
 
     // チェックボックスのイベントリスナー
     document.getElementById("showCompleted").addEventListener("change", (event) => {
