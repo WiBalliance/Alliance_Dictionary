@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>イベントスケジュール</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/frappe-gantt/0.5.0/frappe-gantt.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/frappe-gantt/0.5.0/frappe-gantt.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #gantt {
+      margin-top: 20px;
+      height: 500px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>イベントスケジュール</h1>
+  <div id="gantt"></div>
+  
+  <button id="copyButton">進行中のタスクと翌日のタスクをコピー</button>
+
+  <script>
+    // 進捗をタスクの開始日と終了日から計算する関数
+    const calculateProgress = (task) => {
+      const now = new Date();
+      const start = new Date(task.start);
+      const end = new Date(task.end);
+      
+      // タスクの総期間（ミリ秒）
+      const totalDuration = end - start;
+      
+      // 現在の日付からタスクの開始日までの経過時間（ミリ秒）
+      const elapsedTime = now - start;
+
+      // 経過時間に基づいて進捗をパーセンテージで計算
+      if (elapsedTime < 0) return 0; // タスクがまだ開始されていない場合
+      if (elapsedTime > totalDuration) return 100; // タスクが完了した場合
+      return (elapsedTime / totalDuration) * 100;
+    };
+
+    // JSONファイルからタスクデータを読み込む
+    fetch('tasks.json')
+      .then(response => response.json())
+      .then(tasks => {
+        // 各タスクの進捗を動的に計算
+        tasks.forEach(task => {
+          task.progress = calculateProgress(task); // タスクの開始日と終了日を元に進捗を更新
+        });
+
+        // ガントチャートの初期化
+        const gantt = new Gantt("#gantt", tasks, {
+          view_mode: "Day", // 表示モード ("Quarter Day", "Day", "Week", "Month")
+          date_format: "YYYY-MM-DD",
+          editable: false // スケジュールバーを動かせないようにする
+        });
+      })
+      .catch(error => console.error('Error loading tasks.json:', error));
+
+    // 進行中のタスクと翌日のタスクを取得してコピーする機能
+    document.getElementById("copyButton").addEventListener("click", () => {
+      const now = new Date();
+      const tomorrow = new Date();
+      tomorrow.setDate(now.getDate() + 1); // 翌日の日付を設定
+
+      fetch('tasks.json')
+        .then(response => response.json())
+        .then(tasks => {
+          const tomorrowTasks = tasks.filter(task => {
+            const start = new Date(task.start);
+            const end = new Date(task.end);
+            return start <= tomorrow && end >= tomorrow; // 翌日に該当するタスク
+          });
+
+          const tasksToCopy = {
+            tomorrowTasks: tomorrowTasks.map(task => task.name)
+          };
+
+          // 進行中のタスクと翌日のタスクをコピー
+          const textToCopy = `翌日のタスク: \n${tasksToCopy.tomorrowTasks.join('\n')}`;
+
+          // クリップボードにコピー
+          navigator.clipboard.writeText(textToCopy).then(() => {
+            alert("翌日のタスクをコピーしました！");
+          }).catch(err => {
+            alert("コピーに失敗しました。");
+          });
+        })
+        .catch(error => console.error('Error loading tasks.json:', error));
+    });
+  </script>
+</body>
+</html>
