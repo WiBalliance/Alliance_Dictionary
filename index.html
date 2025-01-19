@@ -84,17 +84,26 @@
             tomorrowTasks: tomorrowTasks.map(task => task.name)
           };
 
-          // 進行中のタスクと翌日のタスクをコピー
           const textToCopy = `翌日のタスク: \n${tasksToCopy.tomorrowTasks.join('\n')}`;
 
-          // クリップボードにコピー
-          navigator.clipboard.writeText(textToCopy).then(() => {
+          // クリップボードにコピー (document.execCommandを利用)
+          const textArea = document.createElement("textarea");
+          textArea.value = textToCopy;
+          document.body.appendChild(textArea);
+          textArea.select();
+          const successful = document.execCommand('copy');
+          document.body.removeChild(textArea);
+
+          if (successful) {
             alert("翌日のタスクをコピーしました！");
-          }).catch(err => {
-            alert("コピーに失敗しました。");
-          });
+          } else {
+            alert("コピーに失敗しました。手動でコピーしてください。");
+          }
         })
-        .catch(error => console.error('Error loading tasks.json:', error));
+        .catch(error => {
+          console.error('Error loading tasks.json:', error);
+          alert("タスクデータの読み込みに失敗しました。");
+        });
     });
   </script>
 </body>
