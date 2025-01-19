@@ -76,12 +76,17 @@
       const filteredTasks = allTasks.filter(task => {
         const end = new Date(task.end);
         const matchesName = task.name.toLowerCase().includes(nameFilter.toLowerCase());
-        return (showCompleted || end > now) && matchesName; // 終了したイベントを表示するかどうか、かつ名前でフィルタ
+    
+        // 日付部分を比較するため、時刻を無視して YYYY-MM-DD の形式に変換
+        const startDate = new Date(task.start.split(' ')[0]); // 時刻を削除して日付だけにする
+        const endDate = new Date(task.end.split(' ')[0]); // 時刻を削除して日付だけにする
+    
+        return (showCompleted || endDate >= now) && matchesName;
       });
-
+    
       const gantt = new Gantt("#gantt", filteredTasks, {
         view_mode: "Day",
-        date_format: "YYYY-MM-DD",
+        date_format: "YYYY-MM-DD", // 日付の表示形式
         editable: false
       });
     };
@@ -130,28 +135,34 @@
       const targetTasks = allTasks.filter(task => {
         const start = new Date(task.start);
         const end = new Date(task.end);
-        return start <= targetDate && end >= targetDate;
+        
+        // ターゲット日付を基準に、開始時間や終了時間が短い場合でも重なっていればコピー対象にする
+        const targetStartDate = new Date(targetDate.setHours(0, 0, 0, 0)); // ターゲット日の開始時間（00:00）
+        const targetEndDate = new Date(targetDate.setHours(23, 59, 59, 999)); // ターゲット日の終了時間（23:59）
+      
+        return (start < targetEndDate && end > targetStartDate); // 開始日または終了日がターゲット日と重なる場合
       });
-
+    
       if (targetTasks.length === 0) {
         alert(`${formattedDate}にはイベントがありません`);
         return;
       }
-
+    
       const tasksToCopy = targetTasks.map(task => {
         const taskStartDate = new Date(task.start);
+        const taskStartFormattedTime = `${String(taskStartDate.getHours()).padStart(2, '0')}:${String(taskStartDate.getMinutes()).padStart(2, '0')}`; // 開始時刻の取得
         const diffTime = targetDate - taskStartDate;
         const diffDays = Math.floor((diffTime / (1000 * 60 * 60 * 24)) + 1); // 開始日からの経過日数
-        return `${task.name} (${diffDays}日目)`;  // 開始日からの日数を表示
+        return `${taskStartFormattedTime}~ ${task.name} (${diffDays}日目)`;  // 時刻 + イベント名 + 開始日からの日数
       }).join('\n');
-
+    
       const textArea = document.createElement("textarea");
       textArea.value = `${formattedDate}のイベント:\n${tasksToCopy}`;
       document.body.appendChild(textArea);
       textArea.select();
       const successful = document.execCommand('copy');
       document.body.removeChild(textArea);
-
+    
       alert(successful ? `${formattedDate}のイベントをコピーしました！` : "コピーに失敗しました。手動でコピーしてください。");
     });
   </script>
