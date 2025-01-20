@@ -50,7 +50,7 @@ const updateGantt = (showCompleted, nameFilter = '') => {
   const gantt = new Gantt("#gantt", tasksWithProgress, {
     view_mode: "Day", // 時間単位表示
     date_format: "YYYY-MM-DD", // 日付＋時間表示
-    editable: false, // 編集不可
+    editable: false // 編集不可
   });
 };
 
