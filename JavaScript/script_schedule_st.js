@@ -57,6 +57,8 @@ const updateGantt = (showCompleted, nameFilter = '') => {
 // 複数のJSONファイルを読み込む関数
 const loadTasks = async () => {
   const taskFiles = [
+    // 終了イベント
+    "../tasks/tasks_station_old.json",   //終了したステ戦
     "../tasks/tasks_station.json"
   ];
 
