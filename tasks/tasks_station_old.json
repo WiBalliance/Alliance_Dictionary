@@ -1,6 +1,6 @@
 [
   {
-    "id": "",
+    "id": "station",
     "name": "防御ST lv2 (敗:EpD)",
     "start": "2025-01-20 23:28",
     "end": "2025-01-21 23:28",
@@ -8,7 +8,7 @@
     "dependencies": ""
   },
   {
-    "id": "",
+    "id": "station",
     "name": "採集ST lv1 (時短)",
     "start": "2025-01-21 00:48",
     "end": "2025-01-22 00:48",
@@ -16,7 +16,7 @@
     "dependencies": ""
   },
   {
-    "id": "",
+    "id": "station",
     "name": "武器ST lv2 (時短)",
     "start": "2025-01-21 00:35",
     "end": "2025-01-22 00:35",
@@ -24,11 +24,11 @@
     "dependencies": ""
   },
   {
-    "id": "station_8",
+    "id": "station",
     "name": "遠征ST lv3 (時短)",
     "start": "2025-01-21 05:20",
     "end": "2025-01-22 05:20",
     "progress": 0,
     "dependencies": ""
-  },
+  }
 ]
