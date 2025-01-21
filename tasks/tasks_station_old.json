@@ -6,5 +6,21 @@
     "end": "2025-01-21 23:28",
     "progress": 0,
     "dependencies": ""
+  },
+  {
+    "id": "",
+    "name": "採集ST lv1 (時短)",
+    "start": "2025-01-21 00:48",
+    "end": "2025-01-22 00:48",
+    "progress": 0,
+    "dependencies": ""
+  },
+  {
+    "id": "",
+    "name": "武器ST lv2 (時短)",
+    "start": "2025-01-21 00:35",
+    "end": "2025-01-22 00:35",
+    "progress": 0,
+    "dependencies": ""
   }
 ]
