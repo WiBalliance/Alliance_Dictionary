@@ -126,12 +126,28 @@ document.getElementById("taskNameFilter").addEventListener("input", (event) => {
 // コピー機能の実装
 document.getElementById("copyButton").addEventListener("click", () => {
   const selectedDate = document.getElementById("datePicker").value;
+
   if (!selectedDate) {
     alert("日付を選択してください");
     return;
   }
 
+  // 現在の時刻を取得
+  const now = new Date();
   const targetDate = new Date(selectedDate);
+  
+  // 日付が今日の場合、現在時刻を基準にする
+  if (
+    now.getFullYear() === targetDate.getFullYear() &&
+    now.getMonth() === targetDate.getMonth() &&
+    now.getDate() === targetDate.getDate()
+  ) {
+    targetStartDate.setHours(now.getHours(), now.getMinutes(), now.getSeconds(), 0);
+  } else {
+    // 選択日が今日以外なら、デフォルトでその日の00:00を基準にする
+    targetStartDate.setHours(0, 0, 0, 0);
+  }
+
   const formattedDate = `${targetDate.getFullYear()}-${String(targetDate.getMonth() + 1).padStart(2, '0')}-${String(targetDate.getDate()).padStart(2, '0')}`;
 
   const targetTasks = allTasks.filter(task => {
@@ -139,14 +155,13 @@ document.getElementById("copyButton").addEventListener("click", () => {
     const end = new Date(task.end);
     
     // ターゲット日付を基準に、開始時間や終了時間が短い場合でも重なっていればコピー対象にする
-    const targetStartDate = new Date(targetDate.setHours(0, 0, 0, 0)); // ターゲット日の開始時間（00:00）
     const targetEndDate = new Date(targetDate.setHours(23, 59, 59, 999)); // ターゲット日の終了時間（23:59）
   
     return (start < targetEndDate && end > targetStartDate); // 開始日または終了日がターゲット日と重なる場合
   });
 
   if (targetTasks.length === 0) {
-    alert(`${formattedDate}にはイベントがありません`);
+    alert(`${formattedDate}以降のイベントがありません`);
     return;
   }
 
@@ -161,11 +176,11 @@ document.getElementById("copyButton").addEventListener("click", () => {
   }).join('\n');
 
   const textArea = document.createElement("textarea");
-  textArea.value = `${formattedDate}のイベント:\n${tasksToCopy}`;
+  textArea.value = `${formattedDate}以降のイベント:\n${tasksToCopy}`;
   document.body.appendChild(textArea);
   textArea.select();
   const successful = document.execCommand('copy');
   document.body.removeChild(textArea);
 
-  alert(successful ? `${formattedDate}のイベントをコピーしました！` : "コピーに失敗しました。手動でコピーしてください。");
+  alert(successful ? `${formattedDate}以降のイベントをコピーしました！` : "コピーに失敗しました。手動でコピーしてください。");
 });
