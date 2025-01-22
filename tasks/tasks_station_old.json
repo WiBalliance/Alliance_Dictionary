@@ -46,5 +46,13 @@
     "end": "2025-01-22 04:49",
     "progress": 0,
     "dependencies": ""
+  },
+  {
+    "id": "station_4",
+    "name": "技術ST lv3 (時短時にEpDから防衛しました)",
+    "start": "2025-01-22 07:41",
+    "end": "2025-01-23 07:41",
+    "progress": 0,
+    "dependencies": ""
   }
 ]
