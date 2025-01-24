@@ -83,7 +83,7 @@
     "id": "station_8",
     "name": "遠征ST lv3 (敗:AMS)",
     "start": "2025-01-24 09:35",
-    "end": "2025-01-25 09:35",
+    "end": "2025-01-24 10:21",
     "progress": 0,
     "dependencies": ""
   },
@@ -92,14 +92,6 @@
     "name": "生産ST lv1 【防衛】",
     "start": "2025-01-23 10:22",
     "end": "2025-01-24 10:22",
-    "progress": 0,
-    "dependencies": ""
-  },
-  {
-    "id": "station_8",
-    "name": "遠征ST lv3 (敗:AMS)",
-    "start": "2025-01-24 09:35",
-    "end": "2025-01-25 09:35",
     "progress": 0,
     "dependencies": ""
   }
