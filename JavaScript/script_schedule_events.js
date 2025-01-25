@@ -184,7 +184,7 @@ document.getElementById("copyButton").addEventListener("click", () => {
     const taskEndDate = new Date(task.end);
   
     const isStartDay = taskStartDate >= targetStartDate && taskStartDate <= targetEndDate;
-    const isEndDay = taskEndDate >= targetStartDate && taskEndDate <= targetEndDate;
+    const isEndDay = !isStartDay && taskEndDate >= targetStartDate && taskEndDate <= targetEndDate;
     const isMiddleDay = taskStartDate < targetStartDate && taskEndDate > targetEndDate;
   
     if (isEndDay) {
