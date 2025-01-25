@@ -94,6 +94,8 @@ const loadTasks = async () => {
   const taskFiles = [
     // 終了イベント
     "../tasks/tasks_old.json",                //終了したイベント
+    // 秘宝イベント
+    "../tasks/tasks_hyouketsunohihou.json",   //氷結の秘宝
     // 季節イベント
     "../tasks/tasks_kisetu_events.json",      //季節もののイベント
     // 
@@ -103,6 +105,9 @@ const loadTasks = async () => {
     // 通常イベント
     "../tasks/tasks_hyougennsihaisya.json",   //氷原支配者
     "../tasks/tasks_SvS.json",                //SvS
+    "../tasks/tasks_joe.json",                //クレイジー・ジョイ
+    "../tasks/tasks_takenoko.json",           //燃霜鉱区
+    "../tasks/tasks_yajyu.json",              //野獣駆逐
     "../tasks/tasks_rekkanokiba.json",        //烈火の牙
     "../tasks/tasks_youheinomeiyo.json",      //傭兵の名誉
     "../tasks/tasks_gunbi.json",              //軍備競技
