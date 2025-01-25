@@ -189,31 +189,11 @@ document.getElementById("copyButton").addEventListener("click", () => {
   .filter(line => line !== null) // null を取り除く
   .join('\n');
   
-  // コピー用テキストを作成
-  const tasksToCopy_3 = sortedTasks.map(task => {
-    const taskStartDate = new Date(task.start);
-    const taskEndDate = new Date(task.end);
-  
-    const isStartDay = taskStartDate >= targetStartDate && taskStartDate <= targetEndDate;
-    const isEndDay = taskEndDate >= targetStartDate && taskEndDate <= targetEndDate;
-    const isMiddleDay = taskStartDate < targetStartDate && taskEndDate > targetEndDate;
-  
-    if (isMiddleDay) {
-      const totalDays = Math.ceil((taskEndDate - taskStartDate) / (1000 * 60 * 60 * 24));
-      const currentDay = Math.floor((targetStartDate - taskStartDate) / (1000 * 60 * 60 * 24)) + 2;
-      return `${task.name}(${currentDay}日目)`;
-    }
-    return null; // 空の行として扱う
-  })
-  .filter(line => line !== null) // null を取り除く
-  .join('\n');
-  
   // それぞれの結果を連結
-  const finalTasksToCopy = `【防衛中】\n${tasksToCopy_1}\n\n【解放時間】\n${tasksToCopy_2}\n\n【期間中】\n${tasksToCopy_3}\n`;
+  const finalTasksToCopy = `【防衛中】\n${tasksToCopy_1}\n\n【解放時間】\n${tasksToCopy_2}\n\n`;
   // 結果を表示またはコピー
   console.log(tasksToCopy_1);
   console.log(tasksToCopy_2);
-  console.log(tasksToCopy_3);
   console.log(finalTasksToCopy);
   
   const textArea = document.createElement("textarea");
