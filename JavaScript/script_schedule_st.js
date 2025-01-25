@@ -197,7 +197,7 @@ document.getElementById("copyButton").addEventListener("click", () => {
   console.log(finalTasksToCopy);
   
   const textArea = document.createElement("textarea");
-  textArea.value = `${formattedDate}のイベント:\n${finalTasksToCopy}`;
+  textArea.value = `${formattedDate}のステ戦:\n${finalTasksToCopy}`;
   document.body.appendChild(textArea);
   textArea.select();
   const successful = document.execCommand('copy');
