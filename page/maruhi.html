@@ -82,6 +82,7 @@
             data.forEach(item => {
                 const row = document.createElement('tr');
 
+                // ID列
                 const idCell = document.createElement('td');
                 const idText = document.createElement('span');
                 idText.textContent = item.id;
@@ -96,12 +97,17 @@
                         .catch(err => alert('コピーに失敗しました: ' + err));
                 };
                 idCell.appendChild(copyButton);
-
                 row.appendChild(idCell);
 
+                // 名前列
                 const nameCell = document.createElement('td');
                 nameCell.textContent = item.name;
                 row.appendChild(nameCell);
+
+                // 3列目
+                const emailCell = document.createElement('td');
+                emailCell.textContent = item.action || '';
+                row.appendChild(emailCell);
 
                 tbody.appendChild(row);
             });
@@ -122,6 +128,7 @@
                 <tr>
                     <th>ID</th>
                     <th>名前</th>
+                    <th>メールアドレス</th> <!-- 新しい列 -->
                 </tr>
             </thead>
             <tbody>
