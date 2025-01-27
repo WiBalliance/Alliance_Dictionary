@@ -157,7 +157,7 @@ document.getElementById("copyButton").addEventListener("click", () => {
   
   // 各コピー用テキストを作成
   const tasksToCopy_1 = sortedTasks
-    // .filter(task => new Date(task.start) < now) // 現在時刻より前のタスクを取得
+    .filter(task => new Date(task.start) < now) // 現在時刻より後のタスクを取得
     .map(task => {
     const taskStartDate = new Date(task.start);
     const taskEndDate = new Date(task.end);
@@ -166,9 +166,9 @@ document.getElementById("copyButton").addEventListener("click", () => {
     const isEndDay = taskEndDate >= targetStartDate && taskEndDate <= targetEndDate;
     const isMiddleDay = taskStartDate < targetStartDate && taskEndDate > targetEndDate;
   
-    if (isEndDay) {
-      const taskEndFormattedTime = `${String(taskEndDate.getHours()).padStart(2, '0')}:${String(taskEndDate.getMinutes()).padStart(2, '0')}`;
-      return `~${taskEndFormattedTime} ${task.name}`;
+    if (isStartDay) {
+      const taskStartFormattedTime = `${String(taskStartDate.getHours()).padStart(2, '0')}:${String(taskStartDate.getMinutes()).padStart(2, '0')}`;
+      return `${taskStartFormattedTime}~ ${task.name}`;
     }
     return null; // 空の行として扱う
   })
