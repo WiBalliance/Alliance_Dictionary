@@ -240,17 +240,17 @@ document.getElementById("copyButton").addEventListener("click", () => {
   let finalTasksToCopy = "";
   // 防衛中セクションを追加
   if (tasksToCopy_1 !== "") {
-    finalTasksToCopy += `【防衛中】\n${tasksToCopy_1}\n\n`;
+    finalTasksToCopy += `【防衛中1】\n${tasksToCopy_1}\n\n`;
   }
   if (tasksToCopy_1 == "" && tasksToCopy_4 !== "") {
-    finalTasksToCopy += `【防衛中】\n${tasksToCopy_4}\n\n`;
+    finalTasksToCopy += `【防衛中2】\n${tasksToCopy_4}\n\n`;
   }  // 解放時間セクションを追加
   if (tasksToCopy_2 !== "") {
-    finalTasksToCopy += `【解放時間】\n${tasksToCopy_2}\n\n`;
+    finalTasksToCopy += `【解放時間3】\n${tasksToCopy_2}\n\n`;
   }
   // 終了セクションを追加
   if (tasksToCopy_3 !== "") {
-    finalTasksToCopy += `【終了】\n${tasksToCopy_3}`;
+    finalTasksToCopy += `【終了4】\n${tasksToCopy_3}`;
   }
 
   // 結果を表示またはコピー
