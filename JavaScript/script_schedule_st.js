@@ -158,6 +158,7 @@ document.getElementById("copyButton").addEventListener("click", () => {
   // 各コピー用テキストを作成
   const tasksToCopy_1 = sortedTasks
     .filter(task => new Date(task.start) < now) // 現在時刻より後のタスクを取得
+    .filter(task => new Date(task.end) >= now) // 現在時刻より後のタスクを取得
     .map(task => {
     const taskStartDate = new Date(task.start);
     const taskEndDate = new Date(task.end);
