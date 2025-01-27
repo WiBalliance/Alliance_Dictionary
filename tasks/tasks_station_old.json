@@ -134,5 +134,13 @@
     "end": "2025-01-27 12:41",
     "progress": 0,
     "dependencies": ""
+  },
+  {
+    "id": "station_9",
+    "name": "武器ST lv2(時短しました)",
+    "start": "2025-01-27 09:52",
+    "end": "2025-01-27 12:41",
+    "progress": 0,
+    "dependencies": ""
   }
 ]
