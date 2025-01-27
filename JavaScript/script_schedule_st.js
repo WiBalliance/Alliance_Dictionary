@@ -268,4 +268,66 @@ document.getElementById("copyButton").addEventListener("click", () => {
   document.body.removeChild(textArea);
 
   alert(successful ? `${formattedDate}のイベントをコピーしました！` : "コピーに失敗しました。手動でコピーしてください。");
-});
+},
+  // 日付指定コピー機能の実装
+  document.getElementById("copyButton").addEventListener("click", () => {
+    const selectedDate = document.getElementById("datePicker").value;
+    if (!selectedDate) {
+      alert("日付を選択してください");
+      return;
+    }
+  
+    const targetDate = new Date(selectedDate);
+    const formattedDate = `${targetDate.getFullYear()}-${String(targetDate.getMonth() + 1).padStart(2, '0')}-${String(targetDate.getDate()).padStart(2, '0')}`;
+  
+    const targetStartDate = new Date(targetDate.setHours(0, 0, 0, 0)); // ターゲット日の開始時間（00:00）
+    const targetEndDate = new Date(targetDate.setHours(23, 59, 59, 999)); // ターゲット日の終了時間（23:59）
+  
+    const targetTasks = allTasks.filter(task => {
+      const start = new Date(task.start);
+      const end = new Date(task.end);
+  
+      // ターゲット日付と重なる場合
+      return (start <= targetEndDate && end >= targetStartDate);
+    });
+  
+    if (targetTasks.length === 0) {
+      alert(`${formattedDate}にはイベントがありません`);
+      return;
+    }
+  
+    // 開始時刻で昇順にソート
+    const sortedTasks = targetTasks.sort((a, b) => new Date(a.start) - new Date(b.start));
+    
+    // 各コピー用テキストを作成
+    const tasksToCopy_1 = sortedTasks
+      .map(task => {
+      const taskStartDate = new Date(task.start);
+      const taskEndDate = new Date(task.end);
+    
+      const taskStartFormattedTime = `${String(taskStartDate.getHours()).padStart(2, '0')}:${String(taskStartDate.getMinutes()).padStart(2, '0')}`;
+      return `${taskStartFormattedTime}~ ${task.name}`;
+      }
+      return null; // 空の行として扱う
+    })
+    .filter(line => line !== null) // null を取り除く
+    .join('\n');
+    
+    let finalTasksToCopy = "";
+    // 防衛中セクションを追加
+    if (tasksToCopy_1 !== "") {
+      finalTasksToCopy += `【ステ戦】\n${tasksToCopy_1}\n\n`;
+    }
+  
+    // 結果を表示またはコピー
+    console.log(tasksToCopy_1);
+    
+    const textArea = document.createElement("textarea");
+    textArea.value = `${formattedDate}のステ戦:\n${finalTasksToCopy}`;
+    document.body.appendChild(textArea);
+    textArea.select();
+    const successful = document.execCommand('copy');
+    document.body.removeChild(textArea);
+  
+    alert(successful ? `${formattedDate}のイベントをコピーしました！` : "コピーに失敗しました。手動でコピーしてください。");
+  });
