@@ -142,5 +142,21 @@
     "end": "2025-01-27 12:41",
     "progress": 0,
     "dependencies": ""
+  },
+  {
+    "id": "station_8",
+    "name": "遠征ST lv3(取り返しました)",
+    "start": "2025-01-27 10:21",
+    "end": "2025-01-27 18:49",
+    "progress": 0,
+    "dependencies": ""
+  },
+  {
+    "id": "station_6",
+    "name": "生産ST lv1",
+    "start": "2025-01-27 10:22",
+    "end": "2025-01-27 19:04",
+    "progress": 0,
+    "dependencies": ""
   }
 ]
