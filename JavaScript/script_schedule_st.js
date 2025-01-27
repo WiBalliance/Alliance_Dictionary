@@ -242,7 +242,7 @@ document.getElementById("copyButton").addEventListener("click", () => {
   if (tasksToCopy_1 !== "") {
     finalTasksToCopy += `【防衛中】\n${tasksToCopy_1}\n\n`;
   }
-  if (tasksToCopy_1 == "") {
+  if (tasksToCopy_1 == "" && tasksToCopy_4 !== "") {
     finalTasksToCopy += `【防衛中】\n${tasksToCopy_4}\n\n`;
   }  // 解放時間セクションを追加
   if (tasksToCopy_2 !== "") {
