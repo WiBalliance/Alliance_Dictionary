@@ -256,6 +256,8 @@ document.getElementById("copyButton").addEventListener("click", () => {
   // 結果を表示またはコピー
   console.log(tasksToCopy_1);
   console.log(tasksToCopy_2);
+  console.log(tasksToCopy_3);
+  console.log(tasksToCopy_4);
   console.log(finalTasksToCopy);
   
   const textArea = document.createElement("textarea");
