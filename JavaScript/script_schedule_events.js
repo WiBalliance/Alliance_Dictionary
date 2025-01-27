@@ -234,7 +234,22 @@ document.getElementById("copyButton").addEventListener("click", () => {
   .join('\n');
   
   // それぞれの結果を連結
-  const finalTasksToCopy = `【終了】\n${tasksToCopy_1}\n\n【開始】\n${tasksToCopy_2}\n\n【期間中】\n${tasksToCopy_3}\n`;
+  // const finalTasksToCopy = `【終了】\n${tasksToCopy_1}\n\n【開始】\n${tasksToCopy_2}\n\n【期間中】\n${tasksToCopy_3}\n`;
+  let finalTasksToCopy = "";
+  // 防衛中セクションを追加
+  if (tasksToCopy_1 !== "") {
+    finalTasksToCopy += `【終了】\n${tasksToCopy_1}\n\n`;
+  }
+  if (tasksToCopy_2 !== "") {
+    finalTasksToCopy += `【開始】\n${tasksToCopy_2}\n\n`;
+  }
+  if (tasksToCopy_3 !== "") {
+    finalTasksToCopy += `【期間中】\n${tasksToCopy_3}\n\n`;
+  }
+
+
+
+  
   // 結果を表示またはコピー
   console.log(tasksToCopy_1);
   console.log(tasksToCopy_2);
