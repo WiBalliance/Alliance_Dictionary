@@ -153,48 +153,47 @@ document.getElementById("copyButton").addEventListener("click", () => {
   // 開始時刻で昇順にソート
   const sortedTasks = targetTasks.sort((a, b) => new Date(a.start) - new Date(b.start));
   
-  // 各コピー用テキストを作成
   const now = new Date(); // 現在時刻を取得
   
-  // 選択した日付かつ現在時間より前のタスクを作成
+  // 各コピー用テキストを作成
   const tasksToCopy_1 = sortedTasks
     .filter(task => new Date(task.end) <= now) // 現在時刻より前のタスクを取得
     .map(task => {
-      const taskStartDate = new Date(task.start);
-      // const taskEndDate = new Date(task.end);
+    const taskStartDate = new Date(task.start);
+    const taskEndDate = new Date(task.end);
   
-      const isStartDay = taskStartDate >= targetStartDate && taskStartDate <= targetEndDate;
-      const isEndDay = !isStartDay && taskEndDate >= targetStartDate && taskEndDate <= targetEndDate;
-      const isMiddleDay = taskStartDate < targetStartDate && taskEndDate > targetEndDate;
+    const isStartDay = taskStartDate >= targetStartDate && taskStartDate <= targetEndDate;
+    const isEndDay = taskEndDate >= targetStartDate && taskEndDate <= targetEndDate;
+    const isMiddleDay = taskStartDate < targetStartDate && taskEndDate > targetEndDate;
   
-      if (isEndDay) {
-        const taskEndFormattedTime = `${String(taskEndDate.getHours()).padStart(2, '0')}:${String(taskEndDate.getMinutes()).padStart(2, '0')}`;
-        return `~${taskEndFormattedTime} ${task.name}`;
-      }
-      return null; // 空の行として扱う
-    })
-    .filter(line => line !== null) // null を取り除く
-    .join('\n');
+    if (isEndDay) {
+      const taskEndFormattedTime = `${String(taskEndDate.getHours()).padStart(2, '0')}:${String(taskEndDate.getMinutes()).padStart(2, '0')}`;
+      return `~${taskEndFormattedTime} ${task.name}`;
+    }
+    return null; // 空の行として扱う
+  })
+  .filter(line => line !== null) // null を取り除く
+  .join('\n');
   
-  // 選択した日付かつ現在時間より後のタスクを作成
+  // コピー用テキストを作成
   const tasksToCopy_2 = sortedTasks
     .filter(task => new Date(task.start) > now) // 現在時刻より後のタスクを取得
     .map(task => {
-      const taskStartDate = new Date(task.start);
-      const taskEndDate = new Date(task.end);
+    const taskStartDate = new Date(task.start);
+    const taskEndDate = new Date(task.end);
   
-      const isStartDay = taskStartDate >= targetStartDate && taskStartDate <= targetEndDate;
-      const isEndDay = taskEndDate >= targetStartDate && taskEndDate <= targetEndDate;
-      const isMiddleDay = taskStartDate < targetStartDate && taskEndDate > targetEndDate;
+    const isStartDay = taskStartDate >= targetStartDate && taskStartDate <= targetEndDate;
+    const isEndDay = taskEndDate >= targetStartDate && taskEndDate <= targetEndDate;
+    const isMiddleDay = taskStartDate < targetStartDate && taskEndDate > targetEndDate;
   
-      if (isStartDay) {
-        const taskStartFormattedTime = `${String(taskStartDate.getHours()).padStart(2, '0')}:${String(taskStartDate.getMinutes()).padStart(2, '0')}`;
-        return `${taskStartFormattedTime}~ ${task.name}`;
-      }
-      return null; // 空の行として扱う
-    })
-    .filter(line => line !== null) // null を取り除く
-    .join('\n');
+    if (isStartDay) {
+      const taskStartFormattedTime = `${String(taskStartDate.getHours()).padStart(2, '0')}:${String(taskStartDate.getMinutes()).padStart(2, '0')}`;
+      return `${taskStartFormattedTime}~ ${task.name}`;
+    }
+    return null; // 空の行として扱う
+  })
+  .filter(line => line !== null) // null を取り除く
+  .join('\n');
   
   // それぞれの結果を連結
   const finalTasksToCopy = `【防衛中】\n${tasksToCopy_1}\n\n【解放時間】\n${tasksToCopy_2}\n\n`;
