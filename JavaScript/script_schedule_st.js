@@ -254,11 +254,11 @@ document.getElementById("copyButton").addEventListener("click", () => {
   }
 
   // 結果を表示またはコピー
-  console.log(tasksToCopy_1);
-  console.log(tasksToCopy_2);
-  console.log(tasksToCopy_3);
-  console.log(tasksToCopy_4);
-  console.log(finalTasksToCopy);
+  console.log("1:"tasksToCopy_1);
+  console.log("2:"tasksToCopy_2);
+  console.log("3:"tasksToCopy_3);
+  console.log("4:"tasksToCopy_4);
+  console.log("f:"finalTasksToCopy);
   
   const textArea = document.createElement("textarea");
   textArea.value = `${formattedDate}のステ戦:\n${finalTasksToCopy}`;
