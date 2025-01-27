@@ -313,7 +313,7 @@ document.getElementById("copyAllButton").addEventListener("click", () => {
   console.log(tasksToCopy);
   
   const textArea = document.createElement("textarea");
-  textArea.value = `終了していないイベント:\n${tasksToCopy}`;
+  textArea.value = `今後のST戦:\n${tasksToCopy}`;
   document.body.appendChild(textArea);
   textArea.select();
   const successful = document.execCommand('copy');
