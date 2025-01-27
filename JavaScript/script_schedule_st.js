@@ -153,15 +153,15 @@ document.getElementById("copyButton").addEventListener("click", () => {
   // 開始時刻で昇順にソート
   const sortedTasks = targetTasks.sort((a, b) => new Date(a.start) - new Date(b.start));
   
-  // 各コピー用テキストを作成
+  const now = new Date(); // 現在の日時
+
+  // 選択した日付かつ現在時間より前
   const tasksToCopy_1 = sortedTasks.map(task => {
     const taskStartDate = new Date(task.start);
     const taskEndDate = new Date(task.end);
-  
-    const isStartDay = taskStartDate >= targetStartDate && taskStartDate <= targetEndDate;
-    const isEndDay = !isStartDay && taskEndDate >= targetStartDate && taskEndDate <= targetEndDate;
-    const isMiddleDay = taskStartDate < targetStartDate && taskEndDate > targetEndDate;
-  
+
+    const isEndDay = taskEndDate >= targetStartDate && taskEndDate <= targetEndDate && taskEndDate < now;
+
     if (isEndDay) {
       const taskEndFormattedTime = `${String(taskEndDate.getHours()).padStart(2, '0')}:${String(taskEndDate.getMinutes()).padStart(2, '0')}`;
       return `~${taskEndFormattedTime} ${task.name}`;
@@ -170,16 +170,14 @@ document.getElementById("copyButton").addEventListener("click", () => {
   })
   .filter(line => line !== null) // null を取り除く
   .join('\n');
-  
-  // コピー用テキストを作成
+
+  // 選択した日付かつ現在時間より後
   const tasksToCopy_2 = sortedTasks.map(task => {
     const taskStartDate = new Date(task.start);
     const taskEndDate = new Date(task.end);
-  
-    const isStartDay = taskStartDate >= targetStartDate && taskStartDate <= targetEndDate;
-    const isEndDay = taskEndDate >= targetStartDate && taskEndDate <= targetEndDate;
-    const isMiddleDay = taskStartDate < targetStartDate && taskEndDate > targetEndDate;
-  
+
+    const isStartDay = taskStartDate >= targetStartDate && taskStartDate <= targetEndDate && taskStartDate >= now;
+
     if (isStartDay) {
       const taskStartFormattedTime = `${String(taskStartDate.getHours()).padStart(2, '0')}:${String(taskStartDate.getMinutes()).padStart(2, '0')}`;
       return `${taskStartFormattedTime}~ ${task.name}`;
