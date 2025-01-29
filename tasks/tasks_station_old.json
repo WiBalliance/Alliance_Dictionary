@@ -182,5 +182,13 @@
     "end": "2025-01-29 05:46",
     "progress": 0,
     "dependencies": ""
+  },
+  {
+    "id": "station_2",
+    "name": "建築ST lv3",
+    "start": "2025-01-29 04:49",
+    "end": "2025-01-30 04:49",
+    "progress": 0,
+    "dependencies": ""
   }
 ]
