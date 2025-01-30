@@ -190,5 +190,21 @@
     "end": "2025-01-30 04:49",
     "progress": 0,
     "dependencies": ""
+  },
+  {
+    "id": "station_7",
+    "name": "採集ST lv1(時短しました)",
+    "start": "2025-01-30 12:41",
+    "end": "2025-01-30 13:09",
+    "progress": 0,
+    "dependencies": ""
+  },
+  {
+    "id": "station_9",
+    "name": "武器ST lv2(時短しました)",
+    "start": "2025-01-30 12:41",
+    "end": "2025-01-30 13:13",
+    "progress": 0,
+    "dependencies": ""
   }
 ]
