@@ -222,5 +222,13 @@
     "end": "2025-01-30 21:09",
     "progress": 0,
     "dependencies": ""
+  },
+  {
+    "id": "station_8",
+    "name": "遠征ST lv3(時短可)【要駐屯】",
+    "start": "2025-01-30 18:49",
+    "end": "2025-01-31 04:35",
+    "progress": 0,
+    "dependencies": ""
   }
 ]
