@@ -206,5 +206,21 @@
     "end": "2025-01-30 13:13",
     "progress": 0,
     "dependencies": ""
+  },
+  {
+    "id": "station_6",
+    "name": "生産ST lv1",
+    "start": "2025-01-30 19:04",
+    "end": "2025-01-30 19:39",
+    "progress": 0,
+    "dependencies": ""
+  },
+  {
+    "id": "station_5",
+    "name": "訓練ST lv2【要駐屯】",
+    "start": "2025-01-29 21:09",
+    "end": "2025-01-30 21:09",
+    "progress": 0,
+    "dependencies": ""
   }
 ]
