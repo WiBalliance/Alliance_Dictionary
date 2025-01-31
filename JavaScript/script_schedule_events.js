@@ -111,7 +111,7 @@ const loadTasks = async () => {
     "../tasks/tasks_rekkanokiba.json",        //烈火の牙
     "../tasks/tasks_youheinomeiyo.json",      //傭兵の名誉
 //    "../tasks/tasks_gunbi.json",              //軍備競技
-//    "../tasks/tasks_sikannkeikaku.json",      //士官計画
+    "../tasks/tasks_sikannkeikaku.json",      //士官計画
     "../tasks/tasks_doumeisoudouin.json",     //同盟総動員
     "../tasks/tasks_doumeisouha.json",        //同盟争覇戦
     "../tasks/tasks_toride.json",             //要塞・砦争奪戦
