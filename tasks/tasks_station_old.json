@@ -230,5 +230,53 @@
     "end": "2025-01-31 04:35",
     "progress": 0,
     "dependencies": ""
+  },
+  {
+    "id": "station_11",
+    "name": "防御ST lv2",
+    "start": "2025-01-31 01:47",
+    "end": "2025-02-01 01:47",
+    "progress": 0,
+    "dependencies": ""
+  },
+  {
+    "id": "station_4",
+    "name": "技術ST lv3",
+    "start": "2025-02-01 05:40",
+    "end": "2025-02-02 05:40",
+    "progress": 0,
+    "dependencies": ""
+  },
+  {
+    "id": "station_12",
+    "name": "防御ST lv4",
+    "start": "2025-02-01 05:46",
+    "end": "2025-02-02 05:46",
+    "progress": 0,
+    "dependencies": ""
+  },
+  {
+    "id": "station_2",
+    "name": "建築ST lv3",
+    "start": "2025-02-02 04:48",
+    "end": "2025-02-03 04:48",
+    "progress": 0,
+    "dependencies": ""
+  },
+  {
+    "id": "station_7",
+    "name": "採集ST lv1",
+    "start": "2025-02-02 13:09",
+    "end": "2025-02-03 13:09",
+    "progress": 0,
+    "dependencies": ""
+  },
+  {
+    "id": "station_9",
+    "name": "武器ST lv2",
+    "start": "2025-02-02 13:13",
+    "end": "2025-02-03 13:13",
+    "progress": 0,
+    "dependencies": ""
   }
 ]
