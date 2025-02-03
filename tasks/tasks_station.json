@@ -17,9 +17,9 @@
   },
   {
     "id": "station_3",
-    "name": "技術ST lv1 【未取得】",
-    "start": "",
-    "end": "",
+    "name": "技術ST lv1 (時短可)【要駐屯】",
+    "start": "2025-02-07 02:24",
+    "end": "2025-02-08 02:24",
     "progress": 0,
     "dependencies": ""
   },
@@ -73,9 +73,9 @@
   },
   {
     "id": "station_10",
-    "name": "武器ST lv4 【未取得】",
-    "start": "",
-    "end": "",
+    "name": "武器ST lv4(時短可)【要駐屯】",
+    "start": "2025-02-07 02:05",
+    "end": "2025-02-08 02:05",
     "progress": 0,
     "dependencies": ""
   },
