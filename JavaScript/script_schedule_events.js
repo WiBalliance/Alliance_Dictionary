@@ -84,7 +84,7 @@ const updateGantt = (showCompleted, nameFilter = '') => {
   // ガントチャートを描画
   const gantt = new Gantt("#gantt", tasksWithProgress, {
     view_mode: "Day",
-    date_format: "YYYY-MM-DD HH:mm",
+    date_format: "YYYY/MM/DD HH:mm",
     editable: false
   });
 };
