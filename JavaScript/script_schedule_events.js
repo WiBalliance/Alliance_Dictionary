@@ -67,7 +67,7 @@ const generateRepeatingTasks = (tasks) => {
 const updateGantt = (showCompleted, nameFilter = '') => {
   const now = new Date();
   const twoWeeksLater = new Date();
-  twoWeeksLater.setDate(now.getDate() + 28); // 現在から28日後の日付
+  twoWeeksLater.setDate(now.getDate() + 20); // 現在から20日後の日付
 
   const filteredTasks = allTasks.filter(task => {
     const start = new Date(task.start);
