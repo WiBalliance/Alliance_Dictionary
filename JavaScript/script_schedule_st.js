@@ -240,7 +240,7 @@ document.getElementById("copyButton").addEventListener("click", () => {
   let finalTasksToCopy = "";
   // 防衛中セクションを追加
   if (tasksToCopy_1 !== "" && tasksToCopy_4 !== "") {
-    finalTasksToCopy += `【防衛中】\n${tasksToCopy_1}${tasksToCopy_4}\n\n`;
+    finalTasksToCopy += `【防衛中】\n${tasksToCopy_4}\n${tasksToCopy_1}\n\n`;
   }
   if (tasksToCopy_1 !== "" && tasksToCopy_4 == "") {
     finalTasksToCopy += `【防衛中】\n${tasksToCopy_1}\n\n`;
