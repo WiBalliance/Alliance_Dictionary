@@ -302,5 +302,21 @@
     "end": "2025-02-03 16:17",
     "progress": 0,
     "dependencies": ""
+  },
+  {
+    "id": "station_11",
+    "name": "防御ST lv2",
+    "start": "2025-02-04 01:46",
+    "end": "2025-02-05 01:46",
+    "progress": 0,
+    "dependencies": ""
+  },
+  {
+    "id": "station_12",
+    "name": "防御ST lv4(時短可)【要駐屯】",
+    "start": "2025-02-04 12:22",
+    "end": "2025-02-04 20:36",
+    "progress": 0,
+    "dependencies": ""
   }
 ]
