@@ -102,6 +102,7 @@ const loadTasks = async () => {
     "../tasks/tasks_turi.json",                      //釣り穴選手権
     // 超得イベント
     "../tasks/tasks_setugenboueki.json",             //雪原貿易
+    "../tasks/tasks_mia.json",                       //ミアの占い屋
     // 通常イベント
     "../tasks/tasks_hyougennsihaisya.json",          //氷原支配者
     "../tasks/tasks_SvS.json",                       //SvS
