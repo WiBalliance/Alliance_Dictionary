@@ -34,5 +34,53 @@
       "interval": 28,
       "end_date": "2099-12-31"
     }
+  },
+  {
+    "id": "tasks_gunbi_2",
+    "name": "軍備競技",
+    "start": "2025-02-11 09:00",
+    "end": "2025-02-13 09:00",
+    "progress": 0,
+    "dependencies": "",
+    "repeat": {
+      "interval": 28,
+      "end_date": "2099-12-31"
+    }
+  },
+  {
+    "id": "tasks_gunbi_2",
+    "name": "軍備競技",
+    "start": "2025-02-15 09:00",
+    "end": "2025-02-17 09:00",
+    "progress": 0,
+    "dependencies": "",
+    "repeat": {
+      "interval": 28,
+      "end_date": "2099-12-31"
+    }
+  },
+  {
+    "id": "tasks_gunbi_2",
+    "name": "軍備競技",
+    "start": "2025-02-19 09:00",
+    "end": "2025-02-21 09:00",
+    "progress": 0,
+    "dependencies": "",
+    "repeat": {
+      "interval": 28,
+      "end_date": "2099-12-31"
+    }
+  },
+  {
+    "id": "tasks_gunbi_2",
+    "name": "軍備競技",
+    "start": "2025-02-23 09:00",
+    "end": "2025-02-25 09:00",
+    "progress": 0,
+    "dependencies": "",
+    "repeat": {
+      "interval": 28,
+      "end_date": "2099-12-31"
+    }
   }
 ]
