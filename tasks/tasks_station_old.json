@@ -326,5 +326,29 @@
     "end": "2025-02-05 11:48",
     "progress": 0,
     "dependencies": ""
+  },
+  {
+    "id": "station_4",
+    "name": "技術ST lv3(時短可)【要駐屯】",
+    "start": "2025-02-04 11:48",
+    "end": "2025-02-05 11:48",
+    "progress": 0,
+    "dependencies": ""
+  },
+  {
+    "id": "station_7",
+    "name": "採集ST lv1(時短可)",
+    "start": "2025-02-05 14:19",
+    "end": "2025-02-05 14:52",
+    "progress": 0,
+    "dependencies": ""
+  },
+  {
+    "id": "station_9",
+    "name": "武器ST lv2(時短可)",
+    "start": "2025-02-05 14:22",
+    "end": "2025-02-05 14:55",
+    "progress": 0,
+    "dependencies": ""
   }
 ]
