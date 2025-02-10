@@ -112,8 +112,10 @@
             let image_url = null;
             if (imageFile) {
                 console.log("✅ 画像ファイル取得:", imageFile);
-            
-                const filePath = `comments/${imageFile.name}`;
+            　　// 現在の日時を秒単位で取得
+     　　　　　　const now = new Date();
+     　　　　　　const timestamp = now.toISOString().replace(/[-T:.Z]/g, "");  // "20250210120030567" のような形式
+                const filePath = `comments/${timestamp}_${imageFile.name}`;
                 console.log("✅ ファイルパス:", filePath);
             
                 const { data, error } = await supabase.storage
