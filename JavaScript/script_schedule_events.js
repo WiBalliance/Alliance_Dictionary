@@ -105,6 +105,8 @@ const loadTasks = async () => {
     "../tasks/tasks_mia.json",                       //ミアの占い屋
     // 通常イベント
     "../tasks/tasks_hyougennsihaisya.json",          //氷原支配者
+    "../tasks/tasks_zengunsansen.json",              //全軍参戦
+    "../tasks/tasks_taiyoujou.json",                 //王城決戦
     "../tasks/tasks_SvS.json",                       //SvS
     "../tasks/tasks_setugen_doumeidaisakusen.json",  //雪原貿易、同盟大作戦
     "../tasks/tasks_joe.json",                       //クレイジー・ジョイ
