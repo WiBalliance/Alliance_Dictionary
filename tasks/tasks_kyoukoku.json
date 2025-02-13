@@ -5,7 +5,11 @@
     "start": "2025-01-20 09:00",
     "end": "2025-01-22 09:00",
     "progress": 0,
-    "dependencies": ""
+    "dependencies": "",
+    "repeat": {
+      "interval": 28,
+      "end_date": "2099-12-31"
+    }
   },
   {
     "id": "tasks_kyoukoku_2",
@@ -13,7 +17,11 @@
     "start": "2025-01-22 09:00",
     "end": "2025-01-24 09:00",
     "progress": 0,
-    "dependencies": ""
+    "dependencies": "",
+    "repeat": {
+      "interval": 28,
+      "end_date": "2099-12-31"
+    }
   },
   {
     "id": "tasks_kyoukoku_3",
@@ -21,6 +29,9 @@
     "start": "2025-01-25 09:00",
     "end": "2025-01-25 23:00",
     "progress": 0,
-    "dependencies": ""
-  }
+    "dependencies": "",
+    "repeat": {
+      "interval": 28,
+      "end_date": "2099-12-31"
+    }
 ]
