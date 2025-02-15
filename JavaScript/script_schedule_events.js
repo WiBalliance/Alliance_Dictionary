@@ -67,7 +67,7 @@ const generateRepeatingTasks = (tasks) => {
 const updateGantt = (showCompleted, nameFilter = '') => {
   const now = new Date();
   const twoWeeksLater = new Date();
-  twoWeeksLater.setDate(now.getDate() + 20); // 現在から20日後の日付
+  twoWeeksLater.setDate(now.getDate() + 7); // 現在から20日後の日付
 
   const filteredTasks = allTasks.filter(task => {
     const start = new Date(task.start);
@@ -122,6 +122,7 @@ const loadTasks = async () => {
     "../tasks/tasks_heiki.json",                     //兵器工場争奪戦
     "../tasks/tasks_kyoukoku.json",                  //峡谷合戦
     "../tasks/tasks_jina.json",                      //ジーナの復讐
+    "../tasks/tasks_herbester.json",                 //ハーベスター
     "../tasks/tasks_akatsukinotenbou.json",          //暁の展望
     "../tasks/tasks_kuma1.json",                     //熊罠1
     "../tasks/tasks_kuma2.json"                      //熊罠2
