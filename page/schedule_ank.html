@@ -166,7 +166,7 @@
                 copyButton.textContent = "コピー";
                 copyButton.className = 'copy-button';
                 copyButton.addEventListener('click', () => {
-                    navigator.clipboard.writeText(line).then(() => {
+                    navigator.clipboard.writeText(cleanedline).then(() => {
                         alert('クリップボードにコピーしました！');
                     });
                 });
