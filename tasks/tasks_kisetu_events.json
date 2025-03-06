@@ -70,5 +70,29 @@
     "end": "2025-02-18 09:00",
     "progress": 0,
     "dependencies": ""
+  },
+ {
+    "id": "tasks_kisetu_events",
+    "name": "季節-曙光の盛典",
+    "start": "2025-03-06 09:00",
+    "end": "2025-03-13 09:00",
+    "progress": 0,
+    "dependencies": ""
+  },
+ {
+    "id": "tasks_kisetu_events",
+    "name": "季節-栄輝の贈り物",
+    "start": "2025-03-05 09:00",
+    "end": "2025-03-16 09:00",
+    "progress": 0,
+    "dependencies": ""
+  },
+ {
+    "id": "tasks_kisetu_events",
+    "name": "季節-祝福の明灯",
+    "start": "2025-02-28 09:00",
+    "end": "2025-03-30 09:00",
+    "progress": 0,
+    "dependencies": ""
   }
 ]
