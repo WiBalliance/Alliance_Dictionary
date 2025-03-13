@@ -5,11 +5,7 @@
     "start": "2025-01-29 09:00",
     "end": "2025-02-05 09:00",
     "progress": 0,
-    "dependencies": "",
-    "repeat": {
-      "interval": 56,
-      "end_date": "2099-12-31"
-    }
+    "dependencies": ""
   },
   {
     "id": "hihou",
@@ -17,11 +13,7 @@
     "start": "2025-01-29 09:00",
     "end": "2025-02-05 09:00",
     "progress": 0,
-    "dependencies": "",
-    "repeat": {
-      "interval": 56,
-      "end_date": "2099-12-31"
-    }
+    "dependencies": ""
   },
   {
     "id": "hihou",
@@ -29,10 +21,7 @@
     "start": "2025-01-29 09:00",
     "end": "2025-02-06 09:00",
     "progress": 0,
-    "dependencies": "",
-    "repeat": {
-      "interval": 56,
-      "end_date": "2099-12-31"
+    "dependencies": ""
     }
   }
 ]
