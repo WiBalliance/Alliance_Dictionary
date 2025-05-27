@@ -86,7 +86,7 @@
     
       // カレンダーを再描画
       if (window.renderCalendar) {
-        renderCalendar(); // script_schedule_events_calendar.js で定義されている関数
+        renderCalendar(); // script_schedule_money_calendar.js で定義されている関数
       }
     }
 
@@ -96,7 +96,7 @@
   
       // ガントチャートを再描画
       if (window.updateGantt) {
-        updateGantt(); // script_schedule_events_gantt.js で定義されている関数
+        updateGantt(); // script_schedule_money_gantt.js で定義されている関数
       }
     }
   </script>
@@ -108,7 +108,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/frappe-gantt/0.5.0/frappe-gantt.min.js"></script>
 
   <!-- 外部JavaScriptファイル -->
-  <script src="../JavaScript/script_schedule_events_calendar.js"></script>
-  <script src="../JavaScript/script_schedule_events_gantt.js"></script>
+  <script src="../JavaScript/script_schedule_money_calendar.js"></script>
+  <script src="../JavaScript/script_schedule_money_gantt.js"></script>
 </body>
 </html>
