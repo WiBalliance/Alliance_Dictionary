@@ -133,7 +133,7 @@
   },
   {
     "id": "tasks_money_1",
-    "name": "【課金】工匠の宝庫★",
+    "name": "【課金】工匠の宝庫",
     "start": "2025-05-28 09:00",
     "end": "2025-05-30 08:59",
     "progress": 0,
@@ -150,6 +150,18 @@
     "end": "2025-05-31 08:59",
     "progress": 0,
     "dependencies": ""
+  },
+  {
+    "id": "tasks_money_1",
+    "name": "【課金】部隊訓練",
+    "start": "2025-06-04 09:00",
+    "end": "2025-06-66 08:59",
+    "progress": 0,
+    "dependencies": "",
+    "repeat": {
+      "interval": 14,
+      "end_date": "2099-12-31"
+    }
   },
   {
     "id": "tasks_money_1",
