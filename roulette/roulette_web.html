@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>ルーレット</title>
+  <style>
+    body { text-align: center; font-family: sans-serif; }
+    canvas { margin-top: 20px; }
+    #result { font-size: 1.5em; margin-top: 20px; }
+    #arrow { font-size: 2em; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>🎯 ルーレット</h1>
+  <div id="arrow">▼</div>
+  <canvas id="roulette" width="400" height="400"></canvas>
+  <div id="result">結果: まだ決まっていません</div>
+
+  <script>
+    // ----------- 乱数を固定するシード付き乱数 ----------
+    function seededRandom(seed) {
+      let h = 0;
+      for (let i = 0; i < seed.length; i++) {
+        h = Math.imul(31, h) + seed.charCodeAt(i) | 0;
+      }
+      return () => {
+        h ^= h << 13; h ^= h >> 17; h ^= h << 5;
+        return (h >>> 0) / 0xFFFFFFFF;
+      };
+    }
+
+    // ---------- クエリパラメータ取得 ----------
+    function getQueryParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    const itemsRaw = getQueryParam("items");
+    const seed = getQueryParam("seed") || "default";
+
+    if (!itemsRaw) {
+      document.getElementById("result").textContent = "⚠ items=xxx,yyy の形式で指定してください";
+      throw new Error("No items");
+    }
+
+    const items = itemsRaw.split(",").map(s => decodeURIComponent(s.trim()));
+    const rand = seededRandom(seed);
+    const winnerIndex = Math.floor(rand() * items.length);
+    const winner = items[winnerIndex];
+
+    // --------- 描画 ----------------
+    const canvas = document.getElementById("roulette");
+    const ctx = canvas.getContext("2d");
+    const radius = canvas.width / 2;
+    const anglePer = 2 * Math.PI / items.length;
+
+    function drawRoulette(angleOffset = 0) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.save();
+      ctx.translate(radius, radius);
+      ctx.rotate(angleOffset);
+
+      for (let i = 0; i < items.length; i++) {
+        const startAngle = i * anglePer;
+        const endAngle = (i + 1) * anglePer;
+
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.arc(0, 0, radius, startAngle, endAngle);
+        ctx.fillStyle = `hsl(${(360 / items.length) * i}, 70%, 60%)`;
+        ctx.fill();
+        ctx.stroke();
+
+        // テキスト
+        const midAngle = (startAngle + endAngle) / 2;
+        const x = Math.cos(midAngle) * radius * 0.6;
+        const y = Math.sin(midAngle) * radius * 0.6;
+        ctx.fillStyle = "black";
+        ctx.font = "14px sans-serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(items[i], x, y);
+      }
+
+      ctx.restore();
+    }
+
+    // --------- アニメーション --------
+    let frame = 0;
+    const maxFrames = 60;
+    const totalRotation = 6 * Math.PI + ((items.length - winnerIndex - 0.5) * anglePer); // 0.5で真ん中に
+    function animate() {
+      const t = frame / maxFrames;
+      const eased = 1 - Math.pow(1 - t, 3); // ease-out
+      const angle = totalRotation * eased;
+      drawRoulette(angle);
+      frame++;
+      if (frame <= maxFrames) {
+        requestAnimationFrame(animate);
+      } else {
+        document.getElementById("result").textContent = `結果: ${winner}`;
+      }
+    }
+
+    animate();
+  </script>
+</body>
+</html>
